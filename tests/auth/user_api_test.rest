@@ -1,0 +1,31 @@
+### Criar usuário adotante (default)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Adopter",
+  "email": "Adopter@ifrs.edu.br",
+  "password": "123456",
+  "phone": "54988888888"
+}
+
+### Criar usuário admin
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Admin",
+  "email": "admin@ifrs.edu.br",
+  "password": "123456",
+  "phone": "54999999999",
+  "role": "admin"
+}
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@ifrs.edu.br",
+  "password": "123456"
+}
