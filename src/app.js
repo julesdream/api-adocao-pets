@@ -12,10 +12,8 @@ app.get('/', (req, res) => {
   res.send('Bem vindo à API de Adoção de Pets!');
 });
 
-// Login com geração de token JWT
-app.use('/auth', authRoutes);
-
-// Cadastro de usuários
-app.use('/users', userRoutes);
+// Rotas da aplicação
+app.use('/auth', authRoutes); // Login e autenticação
+app.use('/users', userRoutes); // Cadastro e gerenciamento de usuários
 
 module.exports = app;

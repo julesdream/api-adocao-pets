@@ -1,6 +1,9 @@
 # 🐱 Adoção API (em desenvolvimento)
 Esta é uma API RESTful desenvolvida em **Node.js** com **Express**, que gerencia o processo de adoção de pets. Ela permite cadastrar usuários, gerenciar pets, realizar adoções e autenticar com JWT.
 
+> 🎯 **Progresso atual:** Aproximadamente 65% concluído  
+> (Etapa atual: CRUD de usuários + login + autenticação JWT)
+
 ---
 
 ## 🚀 Funcionalidades
@@ -8,8 +11,8 @@ Esta é uma API RESTful desenvolvida em **Node.js** com **Express**, que gerenci
 - Listar todos os pets (não implementada)
 - Listar/Atualizar/Remover um pet com ID (não implementada)
 - **Cadastrar usuários**
-- Listar todos os usuários (não implementada)
-- Listar/Atualizar/Remover um usuário com ID (não implementada)
+- **Listar todos os usuários**
+- **Listar/Atualizar/Remover um usuário com ID**
 - **Realiza login com retorno de token JWT**
 - Realiza adoção de um pet (não implementada)
 

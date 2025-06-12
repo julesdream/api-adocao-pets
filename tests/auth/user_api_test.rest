@@ -3,8 +3,8 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Adopter",
-  "email": "Adopter@ifrs.edu.br",
+  "name": "Adopter User",
+  "email": "adopter@ifrs.edu.br",
   "password": "123456",
   "phone": "54988888888"
 }
@@ -14,14 +14,14 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Admin",
+  "name": "Admin User",
   "email": "admin@ifrs.edu.br",
   "password": "123456",
   "phone": "54999999999",
   "role": "admin"
 }
 
-### Login
+### Login como admin
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
@@ -29,3 +29,36 @@ Content-Type: application/json
   "email": "admin@ifrs.edu.br",
   "password": "123456"
 }
+
+### Login como adopter
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "adopter@ifrs.edu.br",
+  "password": "123456"
+}
+
+### Listar todos os usuários (apenas admin)
+GET http://localhost:3000/users
+Authorization: Bearer {{token_admin}}
+
+### Buscar usuário por ID (admin ou dono)
+GET http://localhost:3000/users/1
+Authorization: Bearer {{token_admin}}
+
+### Atualizar dados do usuário (admin ou dono)
+PUT http://localhost:3000/users/1
+Authorization: Bearer {{token_admin}}
+Content-Type: application/json
+
+{
+  "name": "Admin User Editado",
+  "email": "admin@ifrs.edu.br",
+  "phone": "54991112222",
+  "password": "novaSenha123"
+}
+
+### Deletar usuário (apenas admin)
+DELETE http://localhost:3000/users/1
+Authorization: Bearer {{token_admin}}

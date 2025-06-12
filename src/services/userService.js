@@ -8,6 +8,26 @@ class UserService {
     return await UserModel.create(userData);
   }
 
+  // Lista todos os usuários
+  static async getAll() {
+    return await UserModel.findAll();
+  }
+
+  // Busca um usuário por ID
+  static async getById(id) {
+    return await UserModel.findById(id);
+  }
+
+  // Atualiza dados do usuário (nome, email, telefone e opcionalmente senha)
+  static async update(id, userData) {
+    return await UserModel.update(id, userData);
+  }
+
+  // Remove um usuário do banco
+  static async remove(id) {
+    return await UserModel.delete(id);
+  }
+
   // Realiza login, verifica senha e retorna um token JWT com o ID do usuário
   static async loginUser(email, password) {
     const user = await UserModel.findByEmail(email);
@@ -25,7 +45,7 @@ class UserService {
       expiresIn: '1h',
     });
 
-    return {token, userId: user.id };
+    return { token, userId: user.id };
   }
 }
 

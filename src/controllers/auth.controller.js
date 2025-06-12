@@ -14,7 +14,7 @@ class AuthController {
           .json({ message: 'E-mail e senha são obrigatórios.' });
       }
 
-      const {token, userId }= await UserService.loginUser(email, password); // Gera o token JWT
+      const { token, userId } = await UserService.loginUser(email, password); // Gera o token JWT
       return res.status(200).json({ token, userId });
     } catch {
       return res.status(401).json({
