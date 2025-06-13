@@ -1,0 +1,56 @@
+### Listar pets disponíveis (rota pública)
+GET http://localhost:3000/pets/available
+
+
+### Login como admin (necessário para as rotas protegidas abaixo)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@ifrs.edu.br",
+  "password": "123456"
+}
+
+### Substitua {{token_admin}} com o token gerado acima
+# Authorization: Bearer {{token_admin}}
+
+
+### Listar todos os pets (somente admin)
+GET http://localhost:3000/pets
+Authorization: Bearer {{token_admin}}
+
+
+### Buscar pet por ID (somente admin)
+GET http://localhost:3000/pets/1
+Authorization: Bearer {{token_admin}}
+
+
+### Cadastrar novo pet (somente admin)
+POST http://localhost:3000/pets
+Authorization: Bearer {{token_admin}}
+Content-Type: application/json
+
+{
+  "name": "Frajola",
+  "age": 3,
+  "species": "cat",
+  "size": "small",           // small | medium | large
+  "description": "Gato preto e branco, muito brincalhão"
+}
+
+### Atualizar pet (somente admin)
+PUT http://localhost:3000/pets/1
+Authorization: Bearer {{token_admin}}
+Content-Type: application/json
+
+{
+  "name": "Frajola Atualizado",
+  "age": 4,
+  "species": "cat",
+  "size": "small",           // small | medium | large
+  "description": "Atualizado pelo admin"
+}
+
+### Remover pet (somente admin - precisa estar 'available')
+DELETE http://localhost:3000/pets/1
+Authorization: Bearer {{token_admin}}
