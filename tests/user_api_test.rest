@@ -3,7 +3,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Adopter User",
+  "name": "adopter",
   "email": "adopter@ifrs.edu.br",
   "password": "123456",
   "phone": "54988888888"
@@ -14,7 +14,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Admin User",
+  "name": "admin",
   "email": "admin@ifrs.edu.br",
   "password": "123456",
   "phone": "54999999999",

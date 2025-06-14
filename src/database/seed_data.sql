@@ -4,8 +4,8 @@ USE loja_db;
 -- Inserindo dois usuários (um admin e um adotante)
 INSERT INTO users (name, email, password, phone, role)
 VALUES 
-('lucas', 'lucas@email.com', 'senha1234', '51999990000', 'admin'),
-('natan', 'natan@email.com', 'senha12345', '51999991111', 'adopter');
+('admin', 'admin@ifrs.edu.br', '123456', '54999999999', 'admin'),
+('adopter', 'adopter@ifrs.edu.br', '123456', '54988888888', 'adopter');
 
 -- Inserindo três pets disponíveis para adoção
 INSERT INTO pets (name, age, species, size, status, description)

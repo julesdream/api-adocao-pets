@@ -2,7 +2,7 @@
 Esta é uma API RESTful desenvolvida em **Node.js** com **Express**, que gerencia o processo de adoção de pets. Ela permite cadastrar usuários, gerenciar pets, realizar adoções e autenticar com JWT.
 
 > 🎯 **Progresso atual:** 100% concluído!✅ 
-> (Etapa atual: Adoções)
+> (Etapa atual: Correções estruturais no ambiente de execução e base de dados)
 
 ---
 
@@ -44,9 +44,7 @@ cd api-adocao-pets
 
 ```bash
 npm install
-npm install --save-dev nodemon eslint prettier
-npm install --save-dev eslint-plugin-prettier eslint-config-prettier
-npm init @eslint/config@latest
+
 ```
 
 3. Configure o banco de dados:
@@ -56,12 +54,12 @@ npm init @eslint/config@latest
 - `seed_data.sql`
 - Crie um arquivo `.env` com:
 ```env
-PORT=3000
-JWT_SECRET=sua_chave_secreta
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=sua_senha
-DB_NAME=adocao
+DB_DATABASE=pets_db
+PORT=3000
+JWT_SECRET=sua_chave_secreta
 ```
 
 4. Inicie o servidor:
