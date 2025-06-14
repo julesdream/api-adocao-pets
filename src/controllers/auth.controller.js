@@ -16,10 +16,17 @@ class AuthController {
 
       const { token, userId } = await UserService.loginUser(email, password); // Gera o token JWT
       return res.status(200).json({ token, userId });
-    } catch {
-      return res.status(401).json({
+    } catch (error) {
+      // Define o status apropriado com base na mensagem de erro
+      const status =
+        error.message === 'Usuário não encontrado' ||
+        error.message === 'Senha incorreta'
+          ? 401
+          : 500;
+
+      return res.status(status).json({
         message:
-          'Falha na autenticação. Verifique o e-mail e a senha e tente novamente.',
+          error.message || 'Falha na autenticação. Tente novamente mais tarde.',
       });
     }
   }

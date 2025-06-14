@@ -1,0 +1,30 @@
+### Login como usuário adotante
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "adopter@ifrs.edu.br",
+  "password": "123456"
+}
+
+### Login como admin
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@ifrs.edu.br",
+  "password": "123456"
+}
+
+### Realizar adoção de pet (somente adotante)
+POST http://localhost:3000/adoptions
+Authorization: Bearer {{token_adopter}}
+Content-Type: application/json
+
+{
+  "petId": 2
+}
+
+### Listar todas as adoções (somente admin)
+GET http://localhost:3000/adoptions
+Authorization: Bearer {{token_admin}}

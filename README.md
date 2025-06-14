@@ -1,8 +1,8 @@
-# 🐱 Adoção API (em desenvolvimento)
+# 🐱 Adoção API
 Esta é uma API RESTful desenvolvida em **Node.js** com **Express**, que gerencia o processo de adoção de pets. Ela permite cadastrar usuários, gerenciar pets, realizar adoções e autenticar com JWT.
 
-> 🎯 **Progresso atual:** Aproximadamente 85% concluído  
-> (Etapa atual: CRUD de pets com autenticação JWT)
+> 🎯 **Progresso atual:** 100% concluído!✅ 
+> (Etapa atual: Adoções)
 
 ---
 
@@ -14,10 +14,9 @@ Esta é uma API RESTful desenvolvida em **Node.js** com **Express**, que gerenci
 - **Listar todos os usuários**
 - **Listar/Atualizar/Remover um usuário com ID**
 - **Realiza login com retorno de token JWT**
-- Realiza adoção de um pet (não implementada)
-- Lista todas as adoções realizadas (não implementada)
+- **Realiza adoção de um pet**
+- **Lista todas as adoções realizadas**
 
- >⚠️ Funcionalidades não implementadas serão entregues em etapas futuras.
 ---
 
 ## 🛠 Tecnologias
@@ -73,6 +72,7 @@ npm run dev
 5. Teste os endpoints com os arquivos:
 ```
 tests/
+    adopt_api_test.rest
     pets_api_test.rest
     user_api_test.rest
 ```
@@ -85,8 +85,9 @@ api-adocao-pets/
 ├── .env
 ├── README.md
 ├── tests/                  # Arquivos com testes de rotas 
-│   ├── user_api_test.rest  # Testes de API para cadastro, login e gerenciamento de usuários 
-│   └── pets_api_test.rest  # Testes de API para gerenciamento de pets   
+|   ├── adopt_api_test.rest # Testes de API para adoções
+│   ├── pets_api_test.rest  # Testes de API para gerenciamento de pets
+│   └── user_api_test.rest  # Testes de API para cadastro, login e gerenciamento de usuários 
 ├── src/
 │   ├── app.js              # Configuração principal do Express
 │   ├── config/             # Conexão com o banco de dados

@@ -7,10 +7,10 @@ class PetController {
     try {
       const pets = await PetService.listAvailable();
       return res.status(200).json(pets);
-    } catch {
+    } catch (error) {
       return res
         .status(500)
-        .json({ message: 'Erro ao listar pets disponíveis.' });
+        .json({ message: `Erro ao listar pets disponíveis: ${error.message}` });
     }
   }
 
@@ -19,8 +19,10 @@ class PetController {
     try {
       const pets = await PetService.list();
       return res.status(200).json(pets);
-    } catch {
-      return res.status(500).json({ message: 'Erro ao listar pets.' });
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ message: `Erro ao listar pets: ${error.message}` });
     }
   }
 
@@ -32,8 +34,10 @@ class PetController {
         return res.status(404).json({ message: 'Pet não encontrado.' });
       }
       return res.status(200).json(pet);
-    } catch {
-      return res.status(500).json({ message: 'Erro ao buscar pet.' });
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ message: `Erro ao buscar pet: ${error.message}` });
     }
   }
 
@@ -44,8 +48,10 @@ class PetController {
       return res
         .status(201)
         .json({ message: 'Pet cadastrado com sucesso.', id });
-    } catch {
-      return res.status(400).json({ message: 'Erro ao cadastrar pet.' });
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ message: `Erro ao cadastrar pet: ${error.message}` });
     }
   }
 
@@ -54,8 +60,10 @@ class PetController {
     try {
       await PetService.update(parseInt(req.params.id), req.body);
       return res.status(200).json({ message: 'Pet atualizado com sucesso.' });
-    } catch {
-      return res.status(400).json({ message: 'Erro ao atualizar pet.' });
+    } catch (error) {
+      return res
+        .status(400)
+        .json({ message: `Erro ao atualizar pet: ${error.message}` });
     }
   }
 
@@ -64,8 +72,13 @@ class PetController {
     try {
       await PetService.remove(parseInt(req.params.id));
       return res.status(200).json({ message: 'Pet removido com sucesso.' });
-    } catch {
-      return res.status(400).json({ message: 'Erro ao remover pet.' });
+    } catch (error) {
+      // Erro específico se o pet não estiver disponível
+      const status = error.message === 'Pet não pode ser removido' ? 403 : 400;
+
+      return res
+        .status(status)
+        .json({ message: `Erro ao remover pet: ${error.message}` });
     }
   }
 }

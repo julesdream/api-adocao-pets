@@ -9,10 +9,10 @@ class UserController {
       return res
         .status(201)
         .json({ message: 'Usuário criado com sucesso.', id });
-    } catch (err) {
+    } catch (error) {
       return res
         .status(400)
-        .json({ message: `Erro ao criar usuário: ${err.message}` });
+        .json({ message: `Erro ao criar usuário: ${error.message}` });
     }
   }
 
@@ -21,8 +21,10 @@ class UserController {
     try {
       const users = await UserService.getAll();
       return res.status(200).json(users);
-    } catch {
-      return res.status(500).json({ message: 'Erro ao listar usuários.' });
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ message: `Erro ao listar usuários: ${error.message}` });
     }
   }
 

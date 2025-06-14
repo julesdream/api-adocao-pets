@@ -7,6 +7,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const petRoutes = require('./routes/pets.routes');
+const adoptionRoutes = require('./routes/adoptions.routes');
 
 app.use(express.json());
 
@@ -19,5 +20,6 @@ app.get('/', (req, res) => {
 app.use('/auth', authRoutes); // Login e autenticação
 app.use('/users', userRoutes); // Cadastro e gerenciamento de usuários
 app.use('/pets', petRoutes); // Cadastro e gerenciamento de pets
+app.use('/adoptions', adoptionRoutes); // Adoção de pets
 
 module.exports = app;
