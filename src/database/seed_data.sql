@@ -1,5 +1,5 @@
 -- Seleciona o banco
-USE loja_db;
+USE pets_db;
 
 -- Inserindo dois usuários (um admin e um adotante)
 INSERT INTO users (name, email, password, phone, role)
